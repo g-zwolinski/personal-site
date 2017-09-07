@@ -1,0 +1,165 @@
+<div id="portfolio">
+  <div class="horizontal-line-top"></div>
+  <div class="horizontal-gapline-top"></div>
+
+  <div ng-if="(itemsPerPage == 13 || itemsPerPage == 7)" class="vertical-line-left-top">
+    &nbsp;
+  </div>
+  <div ng-if="(itemsPerPage == 13 || itemsPerPage == 7) && hasToDrawLines()" class="vertical-line-left-bottom">
+    &nbsp;
+  </div>
+  <div ng-if="(itemsPerPage == 13 || itemsPerPage == 7)" class="vertical-line-right-top">
+    &nbsp;
+  </div>
+  <div ng-if="(itemsPerPage == 13 || itemsPerPage == 7) && hasToDrawLines()" class="vertical-line-right-bottom">
+    &nbsp;
+  </div>
+  <div ng-if="itemsPerPage == 5 && hasToDrawLines()" class="vertical-line-left-top">
+    &nbsp;
+  </div>
+  <div ng-if="itemsPerPage == 5 && hasToDrawLines()" class="vertical-line-right-top">
+    &nbsp;
+  </div>
+
+  <ul id="hexGrid" class="animate-container" md-swipe-left="changePage(1)" md-swipe-right="changePage(-1)">
+    <li class="hex animate-repeat" ng-repeat="hex in showItems(portfolio)">
+      <div class="hexIn">
+        <a class="hexLink" href="#">
+          <img src="{{hex.img}}" alt="" />
+          <h1>{{hex.title}}</h1>
+          <p>{{hex.text}}</p>
+        </a>
+      </div>
+    </li>
+  </ul>
+
+  <div id="paginator">
+    <span ng-repeat="page in definePagesRange() track by $index" ng-click="goToPage($index)" ng-style="{'background': $index==currentPage?'#444':'#ccc'}"></span>
+  </div>
+
+  <div class="horizontal-line-bottom animate-repeat"></div>
+
+  <div class="arrow-left" ng-click="changePage(-1)"></div>
+  <div class="arrow-right" ng-click="changePage(1)"></div>
+</div>
+<!--
+{{itemsPerPage}}, {{pagesAmount}}, {{currentPage}} || <span ng-click="changePage(1)">next page</span> || <span ng-click="changePage(-1)">previous page</span>
+-->
+<div id="about">
+  <md-content>
+    <div class="hidden-xs col-sm-1"></div>
+    <div class="col-xs-12 col-sm-10 border-vertical vertical-padding">
+      <div class="col-xs-12 col-sm-3 zero-padding hidden-xs big-photo">
+        <svg viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg" class="photo">
+          <defs>
+            <pattern id="imgBig" patternUnits="userSpaceOnUse" width="100" height="100">
+              <image xlink:href="assets/images/avatar.png" x="-25" width="150" height="100" />
+            </pattern>
+          </defs>
+          <polygon points="50 1 95 25 95 75 50 99 5 75 5 25" fill="url(#imgBig)"/>
+        </svg>
+      </div>
+      <div class="col-xs-12 col-sm-9 zero-padding">
+        <div class="col-xs-12 zero-padding">
+          <div class="col-xs-12 visible-xs">
+            <svg viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg" class="photo">
+              <defs>
+                <pattern id="img" patternUnits="userSpaceOnUse" width="100" height="100">
+                  <image xlink:href="assets/images/avatar.png" x="-25" width="150" height="100" />
+                </pattern>
+              </defs>
+              <polygon points="50 1 95 25 95 75 50 99 5 75 5 25" fill="url(#img)"/>
+            </svg>
+          </div>
+          <div class="col-xs-12">
+            <h1>Smith Anderson<br>
+              <small class="sub-header">Illustrator & Character Designer</small>
+            </h1>
+          </div>
+        </div>
+        <p class="col-xs-12 justified">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eu velit eget tellus mattis sodales. Duis lobortis sed libero in pulvinar. Integer euismod orci eget pulvinar tincidunt. Nam dignissim nibh ac nunc aliquet, sit amet vehicula erat gravida. Vestibulum in pulvinar dolor. Ut elit risus, malesuada et consequat eu, elementum vestibulum ex. Etiam eu efficitur orci. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus aliquam enim neque, eu ultrices.<br>
+          <div id="social-icons">
+            <span ng-repeat="icon in socialLinks" ng-style="{opacity : icon.opacity}" class="social-icon">
+              <a href="{{::icon.link}}" ng-if="icon.d">
+                <svg class="social-svg" viewBox="0 0 32 32">
+                  <path fill="#2eb398" ng-attr-d="{{::icon.d}}" />
+                </svg>
+              </a>
+            </span>
+          </div>
+        </p>
+      </div>
+    </div>
+  </md-content>
+</div>
+
+<div id="contact">
+  <div class="horizontal-line-top-darker"></div>
+  <md-content>
+    <div class="hidden-xs col-sm-1"></div>
+    <div class="col-xs-12 col-sm-10">
+      <h1 class="col-xs-12">
+        Get In Touch
+        <br>
+        <small class="sub-header-second">In order to get in touch use the contact form below:</small>
+      </h1>
+
+      <form name="projectForm" ng-submit="submit()" class="col-xs-12 col-md-8">
+
+        <md-input-container md-no-float class="md-block">
+          <input maxlength="100" required md-no-asterisk name="name" ng-model="project.name" placeholder="Name (Required)">
+          <div ng-messages="projectForm.name.$error">
+            <div ng-message="required">This is required.</div>
+          </div>
+        </md-input-container>
+
+        <md-input-container md-no-float class="md-block">
+          <input required type="email" name="email" ng-model="project.email"
+                 minlength="6" maxlength="100" ng-pattern="/^.+@.+\..+$/" md-no-asterisk  placeholder="Email (Required)"/>
+
+          <div ng-messages="projectForm.email.$error" role="alert">
+            <div ng-message-exp="['required', 'minlength', 'maxlength', 'pattern']">
+              Your email must be between 6 and 100 characters long and look like an e-mail address.
+            </div>
+          </div>
+        </md-input-container>
+
+        <md-input-container md-no-float class="md-block">
+          <input maxlength="60" required md-no-asterisk name="subject" ng-model="project.subject" placeholder="Subject (Required)">
+          <div ng-messages="projectForm.subject.$error">
+            <div ng-message="required">This is required.</div>
+          </div>
+        </md-input-container>
+
+        <md-input-container md-no-float class="md-block">
+          <textarea maxlength="1000" required md-no-asterisk name="message" ng-model="project.message" rows="5" placeholder="Write your message here... (Required)"></textarea> 
+          <div ng-messages="projectForm.message.$error">
+            <div ng-message="required">This is required.</div>
+          </div>
+        </md-input-container>
+
+        <div>
+          <md-button type="submit">SEND</md-button>
+        </div>
+      </form>
+
+      <div class="col-xs-12 col-md-4 withoutPadding">
+        <p class="col-xs-12 col-sm-8 col-md-12 justified">
+          <b>Lorem ipsum:</b> <any class="sub-header-second">dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</any><br>
+        </p>
+        <p class="col-xs-12 col-sm-4 col-md-12 sub-header-second never-wrap">
+          <svg viewBox="0 0 32 32" class="icon-svg">
+            <path fill="#2eb398" d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2Z" />
+          </svg>Elm St. 14/05 Lost city<br>
+          <svg viewBox="0 0 32 32" class="icon-svg">
+            <path fill="#2eb398" d="M11.229 11.229c-1.583 1.582-3.417 3.096-4.142 2.371-1.037-1.037-1.677-1.941-3.965-0.102-2.287 1.838-0.53 3.064 0.475 4.068 1.16 1.16 5.484 0.062 9.758-4.211 4.273-4.274 5.368-8.598 4.207-9.758-1.005-1.006-2.225-2.762-4.063-0.475s-0.936 2.927 0.103 3.965c0.722 0.725-0.791 2.559-2.373 4.142z" />
+          </svg>+ 3528 331 86 35<br>
+          <svg viewBox="0 0 32 32" class="icon-svg">
+            <path fill="#2eb398" d="M20,8L12,13L4,8V6L12,11L20,6M20,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V6C22,4.89 21.1,4 20,4Z" />
+          </svg>info@hexalcorp.com<br>
+        </p>
+      </div>
+    </div>
+  </md-content>
+  <div class="horizontal-line-bottom-darker"></div>
+</div>

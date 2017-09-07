@@ -1,0 +1,28 @@
+<div class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header visible-xs">
+        <img ng-src="assets/images/logo.png" class="logo-nav" ng-click="$ctrl.isCollapsed = !$ctrl.isCollapsed" >
+    </div>
+    <div uib-collapse="$ctrl.isCollapsed" class="navbar-collapse collapse" id="navbar-main">
+      <ul class="nav navbar-nav">
+        <li>
+            <a href="#portfolio" du-scrollspy du-smooth-scroll>PORTFOLIO</a>
+        </li>
+        <li class="dot hidden-xs"></li>
+        <li>
+            <a href="#about" du-scrollspy du-smooth-scroll>ABOUT</a>
+        </li>
+        <li class="logo-placeholder hidden-xs"></li>
+        <li>
+            <a href="" du-scrollspy du-smooth-scroll>BLOG</a>
+        </li>
+        <li class="dot hidden-xs"></li>
+        <li>
+            <a href="#contact" du-scrollspy du-smooth-scroll>GET IN TOUCH</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<img ng-src="assets/images/logo.png" class="logo-nav-big hidden-xs">
