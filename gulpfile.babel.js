@@ -487,6 +487,7 @@ gulp.task('build', cb => {
             'webpack:dist'
         ],
         'revReplaceWebpack',
+        'copy:images',
         cb);
 });
 
