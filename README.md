@@ -13,4 +13,4 @@ będąc w głównym folderze projektu, w celu zainstalowania bibliotek. Po insta
 # gulp serve:dist
 
 
-Menu w sekcji 'PORTFOLIO' może być obsługiwane za pomocą klaiwszy kierunkowych (w lewo oraz prawo), jak i pojawiającymi się strzałkami w prawym dolnym rogu menu.
+Menu w sekcji 'PORTFOLIO' może być obsługiwane za pomocą klaiwszy kierunkowych (w lewo oraz prawo), pojawiającymi się strzałkami w prawym dolnym rogu menu, jak i gestami 'swipe'.
