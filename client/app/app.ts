@@ -4,7 +4,7 @@ const angular = require('angular');
 const ngCookies = require('angular-cookies');
 const ngResource = require('angular-resource');
 const ngSanitize = require('angular-sanitize');
-//const ngTouch = require('angular-touch');
+const ngTouch = require('angular-touch');
 
 const uiRouter = require('angular-ui-router');
 const uiBootstrap = require('angular-ui-bootstrap');
@@ -36,7 +36,7 @@ angular.module('biznesportApp', [
   ngCookies,
   ngResource,
   ngSanitize,
-  //ngTouch,
+  ngTouch,
 
   uiRouter,
   uiBootstrap,

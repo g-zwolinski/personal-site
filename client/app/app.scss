@@ -27,6 +27,11 @@ a, a:hover, a:focus {
 	text-decoration: none;
 }
 
+/* ff border issue fix */
+.ng-empty{
+    border-color: #454545;
+}
+
 body{
 	font-family: 'Maven Pro';
 	margin-top: 60px;
@@ -106,7 +111,7 @@ body{
     background: #323232;
 }
 
-.active{
+a.active{
 	color: #2ead92 !important;
 	-webkit-transition:all linear 0.5s;
   	transition:all linear 0.5s;
@@ -120,8 +125,8 @@ body{
 li.dot{
 	background: #4a4b5f;
 	display: inline-block;
-	width: 1px;
-	height: 1px;
+	width: 2px;
+	height: 2px;
 	position: relative;
 	top: 25px;
 }
