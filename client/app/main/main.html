@@ -21,11 +21,11 @@
     &nbsp;
   </div>
 
-  <ul id="hexGrid" class="animate-container" md-swipe-left="changePage(1)" md-swipe-right="changePage(-1)">
+  <ul id="hexGrid" class="animate-container" ng-swipe-left="changePage(1)" ng-swipe-right="changePage(-1)">
     <li class="hex animate-repeat" ng-repeat="hex in showItems(portfolio)">
       <div class="hexIn">
         <a class="hexLink" href="#">
-          <img src="{{hex.img}}" alt="" />
+          <img ng-src="{{hex.img}}" alt="" />
           <h1>{{hex.title}}</h1>
           <p>{{hex.text}}</p>
         </a>

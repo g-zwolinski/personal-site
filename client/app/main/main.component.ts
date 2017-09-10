@@ -53,7 +53,7 @@ export class MainController {
           }
         break;
       }
-
+      return false;
     }
 
     $scope.definePagesRange = function(){
@@ -193,7 +193,7 @@ export class MainController {
   }
 
   $onInit() {
-
+    console.log("Z powodu usterki (blokowanie pozostałych kierunków swipe, po dodaniu obsługi któregokolwiek), zmuszony zostałem do skorzystania z ngTouch, mimo zaimplementowanej obsługi gestów w angular material. Stąd też powyższe ostrzeżenie.");
   }
 }
 
