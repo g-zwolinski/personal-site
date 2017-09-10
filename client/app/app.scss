@@ -28,7 +28,7 @@ a, a:hover, a:focus {
 }
 
 /* ff border issue fix */
-.ng-empty{
+.ng-empty:not(.md-input-focused){
     border-color: #454545;
 }
 
