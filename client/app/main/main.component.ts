@@ -178,6 +178,7 @@ export class MainController {
           .textContent('I\'ll contact you soon!')
           .ariaLabel('Thanks')
           .ok('Okay!')
+          .hasBackdrop(false)
         );
 
         $scope.project.name = '';
